@@ -1,0 +1,48 @@
+Extraction, Transformation and Loading(ETL) process to construct database
+---------------------------------------------------------------------------------------
+
+1) Importing Data from OData Feed 
+
+> From the Home ribbon tab in Query Editor, select Get Data     >     OData Feed  
+>  paste the URL " http://services.odata.org/V3/Northwind/Northwind.svc/ "     >    select OK
+
+
+2) Select the order and product table      >     click Transform Data
+
+
+3) ETL Process in Power BI 
+> select the ProductID, ProductName, QuantityPerUnit, and UnitsInStock columns and remove other column                     		(ctrl+click) 
+> Remove columns  >  Remove Other Column
+
+
+4) Change the data type of the UnitsInStock column 
+> Select the UnitsInStock column. 
+> Select the Data Type drop-down button in the Home ribbon        >     select Whole Number
+
+
+5) Expand the Order_Details table
+> go to Order  >  Order_Details   > click on Expand icon (near to order details)
+> Select only ProductID, UnitPrice and Quantity    >    click OK
+
+
+6) Calculate the line total for each Order_Details row
+>  Add column tab  >  Custom column 
+ 				>  name as LineTotal       
+				> custom column formula - [Order_Details.UnitPrice]*[Order_Details.Quantity]
+> click OK
+
+
+7) Rename and reorder columns in the query
+> drag the LineTotal column to the left, after ShipCountry
+> Remove the Order_Details. prefix from the columns
+
+
+8) Combine the Products and Total Sales queries (Confirm the relationship between Products and Total Sales )
+> Home  >  close & Apply
+
+
+> Once the data is loaded, select the Manage Relationships button Home ribbon.  
+    Select the New… button 
+
+you see relationship in model view tab
+ output is done 
