@@ -1,0 +1,36 @@
+Raster Data Sampling
+-------------------------------------------------
+1) Layer  >  Raster Layer  >  float.tif file
+  ( select identify tool click anywhere see temperature values in celsius )
+
+2) layer  >  Delimited Text Layer
+			> file name - national.txt
+			> file format -  Tab, Custom Delimeters
+			> point coordinates  >  X-INTPTLONG,  Y-INTPLAT
+			> layer setting  >  use spatial index
+			> Geometry CRS = EPSG:4326-WGS 84. click on ADD.
+
+3) install point sampling tool plugin
+  > plugin  >  Analyses  >  Point sampling tool
+				  > sampling points  -  2013_Gaz_ua_national
+				  > click - GEOID, NAME, float:Band 1
+  > save file as - max_temperature_at_urban_location.shp    >  click OK
+(identify symbol see temp with geoid, name)
+
+ 4) Layer  >  vector layer  >  Add country.shp  -   EPSG:1188 north america
+
+ 5) Right click on tl_2013_us_country.shp  >  Export > click o save features as            
+        - Format=ESRI shapefile And file name = countries.shp
+	  - CRS= EPSG:4326-WGS 84 and check Add saved file to map   >  click OK
+	(New layer countries will be added)
+
+6) Open toolbox. search zonal statics.
+     - input layer = countries       - Raster layer = us.tmax_nohads_20140525_float
+     - output column = ZS_      > click Run
+
+7)  Right click on zonal statics layer  >  properties  >  symbology
+		- Click on Graduated
+		- Click on Value = ZS_mean 
+		- Click  on colorramp = OrRd
+		- Mode = Equal interval
+		- Click on Classify. Apply And ok.

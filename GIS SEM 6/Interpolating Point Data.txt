@@ -1,0 +1,47 @@
+Interpolating Point Data
+-----------------------------------------------
+1) go to Layer  >  vector layer  >  Arlington_soundings_2007_stpl83.shp and 						> Boundry2004_550_stpl83.shp
+
+2) Processing  >  Open toolbox And search  TIN interpolation 
+         - Vector layer = Arlington_soundings_2007_stpl83.shp 
+         - Interpolation attribute = ELEVATION
+         - Click On + symbol 
+         - Interpolation method = Linear
+         - pixel size X and Y = 5.000000
+	   - Extent > Arlington_soundings_2007_stpl83[calculate from layer]		  
+	    - Save file ( elevation_tin.tif)      >   click RUN
+
+3) click elevation_tin layer  >  Then Click raster > Extraction  > clip raster by Mask Layer
+       ( The clip Raster by Mask Layer window is open )
+               -  Input layer = elevation_tin
+               -  Mask layer = Boundry2004_550_stpl83
+   		   -  clipped mask File save = Clipped_elevation_tin.tif   >   click RUN
+
+4) set layer 
+ 1. Boundry2004_550_stpl83,   2. elevation_tin_clipped,  3. elevation_tin
+ 4. Arlington_soundings_2007_stpl83
+
+5) Right click on elevation_tin_clipped  >  properties  >  symbology 
+        -  render type = singleband pseudocolor
+        -  Min = 500.766  max = 546.419
+        -  Click on classify and change color
+        -  click OK.
+
+6) Right click on elevation_tin_clipped   >   properties   >   Transparancy
+    	  -  Additional no data value = 0    -   click OK
+
+7) select on elevation_tin_clipped 
+   Then Click on raster  >   Extraction  >  contour
+         ( Contour window will open )
+ 		- Input layer = elevation_tin_clipped
+            - band number = band 1 Grey
+            - Interval between contour lines = 5.000000
+		- save file (counters.shp)   >   Run  >  close
+
+8) Right click on counters  >  Properties
+        -  click on Labels  >  Select single labels. 
+        -  Value select (ELEV)
+	  -  Click on Placement  >  Select Mode = Curved
+   > Click OK.
+
+output

@@ -1,0 +1,49 @@
+Create a map of your own residential
+---------------------------------------------    geometry type  - line, polygon, point
+
+Layer  >  create layer  >  new shapefile layer (insert file name,select geometry type, add new fields)
+
+> choose toggle editing   > Add line/point feature (then draw the area)
+                  
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+     *  calculate area ,  large area , intersection ,  inside garden   * 
+
+1) Add a new column Garden_area and calculate the area of each garden
+ Right click on garden  >  select open attribute table    
+> in menu select open field calculator  >   output file name   >   Formula ($area/1000) for km
+
+
+2) large area
+	manually display largest area > open attribute table > select id and zoom to large area
+
+
+3) Show all the railway tracks that intersect with highways
+ > vector       > analysis tools     > line-intersections       >  enter values in input or intersect layer and run
+
+
+4) Find all restraurant inside garden
+> vector     > analysis tool      > count points in polygon     > enter values in input or intersect layer and run
+> Now check result in attribute table    /   select identify feature to check result
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+      *  North pointer, legend and scale, image resolution 1200 dpi  *
+
+create normal map in qgis normal window then,
+project   >   new print layout  >  enter name   >  add item   >  add map
+
+1)North pointer
+add item  >  add north arrow 
+
+2)legend and scale
+add item  >  add legend / add scale bar
+
+3) Add hospital, metro station symbol 
+add item  >  add pictures   >  search icon
+
+4) save with 1200dpi of resolution
+item properties near layout   >   export setting   >  set export resolution
+
+

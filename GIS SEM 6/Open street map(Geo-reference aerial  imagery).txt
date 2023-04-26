@@ -1,0 +1,86 @@
+Open street map ( Geo-reference aerial imagery )                   practical 6
+----------------------------------------------------------
+1) Web menu  >  OpenLayerPlugin  >  OpenstreetMap  >  OpenStreetMap
+
+2) project  >  properties  >  set CRS to EPSG 3857
+
+3) go to View  >  Panels  >  select OSM Place Search
+
+4) search taj mahal, girgaum chowpathy as same as from slip  >  select appropriate file and zoom on them
+
+5) go to Layer  >  Georeferencer  (new georeferencer window will open)
+
+6) File  >  open raster > select tif image file from given folder
+
+7) go to Edit  >  Add Point  (select conttrol points from map)
+   (click on raster to add control points and select "From map Canvas" button)
+
+8) go to Setting  >  Transformation Setting
+
+9) go to File  >  Start Georeferencing
+	(progress is done and output is generate) 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Digitizing Map Data
+------------------------------------------------
+1) go to Layer  >  Add Raster  >  Select"Christchurch Topo50 map.tif" from given folder
+
+2) qgis offers a simple solution to make raster load much faster by using image pyramids
+	> Right Click on Christchuch   > select properties
+
+3) choose Pyramids tab. Hold the ctrl key and select all the resolutions offered in the resolutions panel  >  click Build pyramids  >  ok
+
+4) go to Setting  >  options   >  digitizing tab 
+    > set default snap mode to vertex and segment   >  ok
+
+
+Same for All line(road), polygon(garden) and point(bus stop)
+1) go to layer  > create layer  > Add Spatialite Layer
+
+2)  > select database location MySpatialDataBase.sqlite
+    > Layer Name "Digitized_Road/Garden"
+    > Geometry Type "Line, Polygon, Point"
+    > Set CRS EPSG:4167-NZGD2000
+    > Add "Name" and "Class" field using Add to Fields List
+
+3) After Layer Load  >  click Toggle Editing button to put the layer in editing mode 
+                     >  click the add line/polygon feature button
+
+4) click on the map canvas to add new vertex along with name and class
+
+5) set their properties 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Georeferencing scanned maps and topo sheets
+---------------------------------------------------------------------
+1) go to Layer  >  Add layer  >  Add Vector Layer  >  Select IND_adm0.shp file from folder
+
+2) go to Layer  >  Georeferencer  >  (a georeferencer window will open)
+
+  3) File  >  open Raster  >  Select "Bombay_1909.jpg/ southern_india.jpg" file from given folder
+
+  4) go to Settings  >  Transformation Settings  >  
+	> select transformation type - Thin Plate Spline
+	> Resampling Method - Nearest Neighbour
+	> Target CRS - EPSG:4044-Everest 1830 
+	> check the Load in QGIS when done option
+	> press Ok
+
+  5) go to Edit  >  Add points
+	> click on raster to add control points and select "From map canvas" button
+
+  6) go to Settings  >  Transformation Setings  >
+	> Target CRS - EPSG:4326  WGS 84
+	> press Ok
+
+  7) Start Georeferencing 
+
+8) Set new layer Transparency at appropriate level using properties option
+
+ output become display
