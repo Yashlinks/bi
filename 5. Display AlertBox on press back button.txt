@@ -1,0 +1,67 @@
+activitymain.xml             ....... same code
+------------------
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+MainActivity.kt
+------------------
+
+import android.app.AlertDialog
+import android.app.Dialog
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Toast
+
+class MainActivity : AppCompatActivity() {
+    private var backPressedTime = 0L
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+
+    override fun onBackPressed() {
+        //set builder
+        val eBuilder = AlertDialog.Builder(this)
+
+        //set title
+        eBuilder.setTitle("Exit")
+
+        //set icon
+        eBuilder.setIcon(R.drawable.ic_action_name)
+        eBuilder.setMessage("Are you sure want to exit?")
+        eBuilder.setPositiveButton("Yes"){
+            Dialog,which->
+            finish()
+        }
+        eBuilder.setNegativeButton("No"){
+            Dialog,which->
+            Toast.makeText(this,"You want Exit press again this Button",Toast.LENGTH_SHORT).show()
+        }
+
+        //set Dialog show
+        val createBuild = eBuilder.create()
+        createBuild.show()
+
+    }
+}

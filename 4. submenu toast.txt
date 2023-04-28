@@ -1,0 +1,108 @@
+ res > New > add resource file > menu
+
+activity_main.xml
+------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+menu.xml
+---------------------------------------------------
+<item android:id="@+id/H1"  android:title="Menu1" >
+    </item>
+
+    <item android:id="@+id/H2"  android:title="Menu2" >
+    </item>
+
+    <item android:id="@+id/H3"  android:title="Menu3">
+    </item>
+
+    <item android:id="@+id/H4"  android:title="Menu4"
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/H5"  android:title="sub-item 1" />
+            <item android:id="@+id/H6"  android:title="sub-item 2"/>
+            <item android:id="@+id/H7"  android:title="sub-item 3"/>
+            <item android:id="@+id/H8"  android:title="sub-item 4"/>
+        </menu>
+    </item>
+
+
+
+
+Mainactivity.kt
+---------------------------------------------
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+
+
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.H1 -> {
+                Toast.makeText(this, "Menu1 is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.H2 -> {
+                Toast.makeText(this, "Menu2 is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.H3 -> {
+                Toast.makeText(this, "Menu3 Email is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.H4 -> {
+                Toast.makeText(this, "Menu4 is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.H5 -> {
+                Toast.makeText(this, "Sub-item 1 is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.H6 -> {
+                Toast.makeText(this, "Sub-item 2 is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.H7 -> {
+                Toast.makeText(this, "Sub-item 3 is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.H8 -> {
+                Toast.makeText(this, "Sub-item 4 is selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+}

@@ -1,0 +1,84 @@
+activity_main.xml
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/i1"
+        android:layout_width="194dp"
+        android:layout_height="169dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="217dp"
+        android:src="@drawable/ee" />
+
+    <ImageView
+        android:id="@+id/i2"
+        android:layout_width="wrap_content"
+        android:layout_height="148dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="214dp"
+        android:layout_marginBottom="402dp"
+        android:src="@drawable/gb" />
+
+    <ImageView
+        android:id="@+id/i3"
+        android:layout_width="wrap_content"
+        android:layout_height="157dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="243dp"
+        android:src="@drawable/fo" />
+
+    <ImageView
+        android:id="@+id/i4"
+        android:layout_width="208dp"
+        android:layout_height="168dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="386dp"
+        android:src="@drawable/ff" />
+
+    <ImageView
+        android:id="@+id/i5"
+        android:layout_width="211dp"
+        android:layout_height="172dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/ghg" />
+
+
+</RelativeLayout>
+-----------------------------------------------------------------------------
+
+MainActivity.kt
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+
+-----------------------------------------------------------------------------
