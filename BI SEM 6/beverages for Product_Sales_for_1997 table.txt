@@ -1,9 +1,0 @@
-Consider Northwind dataset. Import the dataset in power BI through the OData feed. Perform data analysis using visualization tools and display sales data of only type beverages for Product_Sales_for_1997 table.
-------------------------------------------------------------------------
-
-1) select Get Data  >  OData Feed
-2) url "http://services.odata.org/V3/Northwind/Northwind.svc/"   >   click Ok
-3) select "product_sales_for_1997" table   >   click on Load
-4) Drag "CategoryName" and "ProductSales" on empty canvas 
-5) select clustered column chart 
-6) Filter Category   >  only Beverages
